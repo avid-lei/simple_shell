@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <string.h>
 #include "header.h"
 /**
@@ -10,7 +9,6 @@ or **/
 char *_getenv(const char *name)
 {
 
-	extern char **environ;
 	int len = strlen(name);
 	int counter = 0;
 	char *path;

@@ -1,13 +1,13 @@
 #ifndef HEADER_H
 #define HEADER_H
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 
+extern char **environ;
 
 typedef struct list
 {
@@ -48,12 +48,6 @@ list *genv(void);
 list *add_node_end(list **head, char *s);
 void delete_node(list **head, unsigned int index);
 int pathchecker(char *copy);
-/**
-char * _realloc(void *ptr, size_t orig_len, size_t new_len);
-char *_memcpy(char *dest, char *src, unsigned int n);
-char *_strncpy(char *dest, const char *src, size_t n);
-ssize_t _getline(char **lineptr, size_t *n, int fd);
-*/
 char *_strdup(char *str);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);

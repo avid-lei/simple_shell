@@ -60,7 +60,7 @@ void _cd(char *s, int args, list *env __attribute__((unused)))
 
 	if (args > 2)
 	{
-		printf("Error: Too many arguments\n");
+		write(STDERR_FILENO, "Error: Too many arguments\n", 26);
 		return;
 	}
 	if (args == 1)
@@ -95,7 +95,7 @@ void _set(char *s, int args, list *env)
 
 	if (args != 3)
 	{
-		printf("Command usage: setenv VARIABLE VALUE\n");
+		write(STDERR_FILENO, "Command usage: setenv VARIABLE VALUE\n", 37);
 		return;
 	}
 	var = _strtok(s, " ");
@@ -138,7 +138,7 @@ void _unset(char *s, int args, list *env)
 
 	if (args != 2)
 	{
-		printf("Command usage: unsetenv VARIABLE\n");
+		write(STDERR_FILENO, "Command usage: unsetenv VARIABLE\n", 33);
 		return;
 	}
 
@@ -177,7 +177,7 @@ void _ex(char *s, int args, list *env __attribute__((unused)))
 	{
 		if (isnum(s) == -1)
 		{
-			dprintf(2, ": 1: exit: Illegal number: %s\n", s);
+			write(STDERR_FILENO, "Exit: Illegal number\n", 21);
 			return;
 		}
 		else

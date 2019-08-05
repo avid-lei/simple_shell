@@ -12,7 +12,7 @@ void _e(char *s, int args, list *env)
 
 	if (args > 1)
 	{
-		printf("env: %s: No such file or directory\n", s);
+		write(STDERR_FILENO, "No such file or directory\n", 26);
 		return;
 	}
 

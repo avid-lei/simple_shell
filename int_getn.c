@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <string.h>
 #include "header.h"
 /**
@@ -11,7 +10,6 @@ int _getn(const char *name)
 {
 
 	int x = 0;
-	extern char **environ;
 	int len = strlen(name);
 
 	for (x = 0; environ[x] != '\0'; x++)

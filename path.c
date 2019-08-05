@@ -76,7 +76,6 @@ int pathchecker(char *copy)
 list *genv(void)
 {
 
-	extern char **environ;
 
 	list *head;
 

@@ -1,5 +1,4 @@
 #include "header.h"
-#include <stdio.h>
 
 /**
  * print_list- prints all the elemtents of the list
@@ -10,11 +9,15 @@
 int print_list(const list *h)
 {
 
-	int i;
+	int i, x;
 
 	for (i = 0; h; i++)
 	{
-		printf("%s\n", h->s);
+		for (x = 0; h->s[x] != '\0'; x++)
+		{
+			_putchar(h->s[x]);
+		}
+		_putchar('\n');
 		h = h->next;
 	}
 

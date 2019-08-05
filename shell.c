@@ -30,7 +30,7 @@ int main(int argc __attribute__((unused)), char *argv[])
 	while (x != -1)
 	{
 		if (isatty(STDIN_FILENO))
-			printf("divalicious$ " );
+			write(STDIN_FILENO, "divalicious$ ", 13);
 
 		y = 0;
 		get = NULL;
@@ -40,7 +40,7 @@ int main(int argc __attribute__((unused)), char *argv[])
 		if (x == -1)
 		{
 			if (isatty(fileno(stdin)))
-				putchar('\n');
+				_putchar('\n');
 
 			free(get);
 			break;
@@ -75,7 +75,8 @@ int main(int argc __attribute__((unused)), char *argv[])
 				buffer[0] = checker;
 			else
 			{
-				dprintf( 2 ,"%s: 1: %s: not found\n", argv[0], first);
+				write(STDERR_FILENO, "Command not found\n", 18);
+			/*	write(STDERR_FILENO ,"%s: %d: %s: not found\n", argv[0], linecount, first);*/
 				free(buffer);
 				free(get);
 				free(gcopy);
