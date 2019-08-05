@@ -95,6 +95,9 @@ _=./hsh
 ```
 ### Included Files
 
+ - _getenv.c - gets the environmental character.
+ - _putchar.c - writes the output to the prompt.
+ - _which.c - determines which character pointers is going through the struct.
  - adddnode.c - Add a node at the front of a linked list.
  - shell.c - functions for running the basic shell logic
  - builtin.c -
