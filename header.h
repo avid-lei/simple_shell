@@ -22,8 +22,8 @@ typedef struct builtin
 } builtin;
 
 
-int _getn(const char *name);
-char *_getenv(const char *name);
+int _getn(char *name);
+char *_getenv(char *name);
 list *add_node(list **head, char *s);
 int print_list(const list *h);
 void free_list(list **head);

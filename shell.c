@@ -5,13 +5,6 @@
 #include <sys/wait.h>
 #include "header.h"
 #include <signal.h>
-/*
-void sigHandler(int sig_num)
-{
-	signal(SIGINT, sigHandler);
-	fflush(stdout);
-}
-*/
 
 
 int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))

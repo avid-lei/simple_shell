@@ -6,16 +6,16 @@
  * Return: return the null.
  *
 or **/
-char *_getenv(const char *name)
+char *_getenv(char *name)
 {
 
-	int len = strlen(name);
+	int len = _strlen(name);
 	int counter = 0;
 	char *path;
 
 	while (*environ)
 	{
-		if (strncmp((*environ), name, len) == 0)
+		if (_strncmp((*environ), name, len) == 0)
 		{
 			path = _strdup(*environ + (len + 1));
 			environ = environ - counter;

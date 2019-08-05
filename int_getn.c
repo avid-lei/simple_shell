@@ -6,16 +6,16 @@
 * Return: return the location number.
 **/
 
-int _getn(const char *name)
+int _getn(char *name)
 {
 
 	int x = 0;
-	int len = strlen(name);
+	int len = _strlen(name);
 
 	for (x = 0; environ[x] != '\0'; x++)
 	{
 
-		if (strncmp(environ[x], name, len) == 0)
+		if (_strncmp(environ[x], name, len) == 0)
 		{
 
 			return (x);
