@@ -32,7 +32,7 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 		x = getline(&get, &y, stdin);
 		if (x == -1)
 		{
-			if (isatty(fileno(stdin)))
+			if (isatty(STDIN_FILENO))
 				_putchar('\n');
 
 			free(get);
