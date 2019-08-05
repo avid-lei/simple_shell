@@ -14,7 +14,7 @@ void sigHandler(int sig_num)
 */
 
 
-int main(int argc __attribute__((unused)), char *argv[])
+int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 {
 	char **buffer;
 	char *get = NULL, *first, *checker, *gcopy, *com = NULL;

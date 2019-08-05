@@ -7,7 +7,7 @@
  * @env: list that is reference with the outside env.
  **/
 
-void _e(char *s, int args, list *env)
+void _e(char *s __attribute__((unused)), int args, list *env)
 {
 
 	if (args > 1)

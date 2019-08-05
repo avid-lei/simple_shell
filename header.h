@@ -1,6 +1,6 @@
 #ifndef HEADER_H
 #define HEADER_H
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -55,5 +55,6 @@ char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 int _strncmp(char *s1, char *s2, size_t n);
 void sigHandler(int sig_num);
+int _putchar(char c);
 
 #endif
