@@ -16,12 +16,13 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 	pid_t child2;
 	list *path = getpath();
 	list *env = genv();
-
+	int linecount = 0;
 	signal(SIGINT, sigHandler);
 
 
 	while (x != -1)
 	{
+		linecount++;
 		if (isatty(STDIN_FILENO))
 			write(STDIN_FILENO, "divalicious$ ", 13);
 
@@ -68,8 +69,13 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 				buffer[0] = checker;
 			else
 			{
-				write(STDERR_FILENO, "Command not found\n", 18);
-			/*	write(STDERR_FILENO ,"%s: %d: %s: not found\n", argv[0], linecount, first);*/
+
+				write(STDERR_FILENO, argv[0], _strlen(argv[0]));
+				write(STDERR_FILENO, ": ", 2);
+				_putchar(linecount + '0');
+				write(STDERR_FILENO, ": ", 2);
+				write(STDERR_FILENO, first, _strlen(first));
+				write(STDERR_FILENO, " not found\n", 18);
 				free(buffer);
 				free(get);
 				free(gcopy);
@@ -100,7 +106,7 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 			z = execve(buffer[0], buffer, NULL);
 			if (z == -1)
 			{
-				perror("Error: ");
+				perror("Execution Error: ");
 				break;
 			}
 		}

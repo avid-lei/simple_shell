@@ -18,7 +18,7 @@ typedef struct list
 typedef struct builtin
 {
 	char *command;
-	void (*func)(char *c, int args, list *path);
+	int (*func)(char *c, int args, list *path);
 } builtin;
 
 
@@ -37,13 +37,13 @@ char *_which(char *s, list *p);
 int is_a(char *s);
 list *getpath(void);
 int built_in(char *s, list *env);
-void _cd(char *s, int args, list *env);
-void _ex(char *s, int args, list *env);
+int _cd(char *s, int args, list *env);
+int _ex(char *s, int args, list *env);
 int _atoi(char *s);
 int isnum(char *s);
-void _e(char *s, int args, list *env);
-void _set(char *s, int args, list *env);
-void _unset(char *s, int args, list *env);
+int _e(char *s, int args, list *env);
+int _set(char *s, int args, list *env);
+int _unset(char *s, int args, list *env);
 list *genv(void);
 list *add_node_end(list **head, char *s);
 void delete_node(list **head, unsigned int index);
@@ -56,5 +56,6 @@ int _strcmp(char *s1, char *s2);
 int _strncmp(char *s1, char *s2, size_t n);
 void sigHandler(int sig_num);
 int _putchar(char c);
+void _printenv(void);
 
 #endif

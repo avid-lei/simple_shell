@@ -37,7 +37,8 @@ int built_in(char *get, list *env)
 			else
 			{
 				token = _strtok(NULL, "\n");
-				b[x].func(token, args, env);
+				if (b[x].func(token, args, env) == -1)
+					return(-1);
 			}
 			return (0);
 		}
@@ -52,7 +53,7 @@ int built_in(char *get, list *env)
  * @env: list that is reference with the outside env.
  **/
 
-void _cd(char *s, int args, list *env __attribute__((unused)))
+int _cd(char *s, int args, list *env __attribute__((unused)))
 {
 
 	int x;
@@ -60,13 +61,12 @@ void _cd(char *s, int args, list *env __attribute__((unused)))
 
 	if (args > 2)
 	{
-		write(STDERR_FILENO, "Error: Too many arguments\n", 26);
-		return;
+		return (-1);
 	}
 	if (args == 1)
 	{
 		chdir("..");
-		return;
+		return (0);
 	}
 
 	if (_strcmp(s, "-") == 0)
@@ -75,9 +75,9 @@ void _cd(char *s, int args, list *env __attribute__((unused)))
 	{
 		x = chdir(s);
 		if (x == -1)
-			perror("Error: ");
+			return (-1);
 	}
-
+	return (0);
 }
 /**
  * _set - set the string and args and check it through the env.
@@ -85,7 +85,7 @@ void _cd(char *s, int args, list *env __attribute__((unused)))
  * @args: args that are being passed.
  * @env: list that is reference with the outside env.
  **/
-void _set(char *s, int args, list *env)
+int _set(char *s, int args, list *env)
 {
 	char *var;
 	char *val;
@@ -95,8 +95,7 @@ void _set(char *s, int args, list *env)
 
 	if (args != 3)
 	{
-		write(STDERR_FILENO, "Command usage: setenv VARIABLE VALUE\n", 37);
-		return;
+		return (-1);
 	}
 	var = _strtok(s, " ");
 
@@ -114,13 +113,15 @@ void _set(char *s, int args, list *env)
 		{
 			env->s = _strdup(str);
 			free(str);
-			return;
+			return (0);
 		}
 		env = env->next;
 
 	}
 
 		env = add_node_end(&temp, str);
+
+		return (0);
 
 }
 /**
@@ -130,7 +131,7 @@ void _set(char *s, int args, list *env)
  * @env: unset the env.
  **/
 
-void _unset(char *s, int args, list *env)
+int _unset(char *s, int args, list *env)
 {
 	char *var;
 	int x;
@@ -138,8 +139,7 @@ void _unset(char *s, int args, list *env)
 
 	if (args != 2)
 	{
-		write(STDERR_FILENO, "Command usage: unsetenv VARIABLE\n", 33);
-		return;
+		return (-1);
 	}
 
 	var = _strtok(s, " ");
@@ -153,6 +153,8 @@ void _unset(char *s, int args, list *env)
 		}
 		env = env->next;
 	}
+
+	return (0);
 }
 /**
  * _ex - takes the string and args and check it through the env.
@@ -161,7 +163,7 @@ void _unset(char *s, int args, list *env)
  * @env: list that is reference with the outside env.
  **/
 
-void _ex(char *s, int args, list *env __attribute__((unused)))
+int _ex(char *s, int args, list *env __attribute__((unused)))
 {
 
 	static int exitval;
@@ -177,8 +179,7 @@ void _ex(char *s, int args, list *env __attribute__((unused)))
 	{
 		if (isnum(s) == -1)
 		{
-			write(STDERR_FILENO, "Exit: Illegal number\n", 21);
-			return;
+			return (-1);
 		}
 		else
 		{
@@ -186,4 +187,5 @@ void _ex(char *s, int args, list *env __attribute__((unused)))
 			exit(exitval);
 		}
 	}
+	return (0);
 }
