@@ -12,7 +12,7 @@ int main(int argc __attribute__((unused)), char *argv[])
 	char **buffer;
 	char *get = NULL, *first, *checker, *gcopy, *com = NULL, *token;
 	size_t y = 0;
-	int *status = 0;
+	int status = 0;
 	int exit_status = 0;
 	int x = 0, z, args = 0, i = 1, arg1;
 	pid_t child2;
@@ -127,18 +127,19 @@ int main(int argc __attribute__((unused)), char *argv[])
 			free(buffer);
 			free(get);
 			free(gcopy);
-			wait(status);
+			wait(&status);
 
-					}
+			if (WIFEXITED(status))
+				exit_status = WEXITSTATUS(status);
+
+
+		}
 		if (child2 == 0)
 		{
 			z = execve(buffer[0], buffer, NULL);
-			exit_status = 2;
 			if (z == -1)
 			{
-				exit_status = 2;
-			/*	if (WIFEXITED(status))
-					exit_status = WEXITSTATUS(status);*/
+				exit_status = 1;
 				perror("Execution Error");
 				break;
 			}

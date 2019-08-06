@@ -10,9 +10,6 @@
 int _e(char *s __attribute__((unused)), int args, list *env)
 {
 
-	if (env == NULL)
-		return (-1);
-
 	if (args > 1)
 	{
 		return (-1);
