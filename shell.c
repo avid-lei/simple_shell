@@ -6,6 +6,12 @@
 #include "header.h"
 #include <signal.h>
 
+void f(void) __attribute__ ((constructor));
+void f(void)
+{
+	signal(SIGINT, sigHandler);
+
+}
 
 int main(int argc __attribute__((unused)), char *argv[])
 {
@@ -164,7 +170,9 @@ int main(int argc __attribute__((unused)), char *argv[])
 			}
 		}
 	}
+if (path)
 	free_list(&path);
+if (env)
 	free_list(&env);
 	return (0);
 }

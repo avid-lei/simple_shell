@@ -14,6 +14,8 @@ void delete_node(list **head, unsigned int index)
 	list *temp;
 	unsigned int counter = 0;
 
+	if (!head)
+		return;
 
 	if (index == 0)
 	{
