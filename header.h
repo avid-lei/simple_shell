@@ -38,7 +38,7 @@ int is_a(char *s);
 list *getpath(void);
 int built_in(char *s, list *env);
 int _cd(char *s, int args, list *env);
-int _ex(char *s, int args, list *env);
+int _ex(int exit_status, int args, char *s);
 int _atoi(char *s);
 int isnum(char *s);
 int _e(char *s, int args, list *env);
@@ -56,5 +56,6 @@ int _strcmp(char *s1, char *s2);
 int _strncmp(char *s1, char *s2, size_t n);
 void sigHandler(int sig_num);
 int _putchar(char c);
+void _errors(char *argv[], char *first);
 
 #endif

@@ -10,8 +10,10 @@
 int main(int argc __attribute__((unused)), char *argv[])
 {
 	char **buffer;
-	char *get = NULL, *first, *checker, *gcopy, *com = NULL;
+	char *get = NULL, *first, *checker, *gcopy, *com = NULL, *token;
 	size_t y = 0;
+	int *status = 0;
+	int exit_status = 0;
 	int x = 0, z, args = 0, i = 1, arg1;
 	pid_t child2;
 	list *path = getpath();
@@ -35,7 +37,6 @@ int main(int argc __attribute__((unused)), char *argv[])
 		{
 			if (isatty(STDIN_FILENO))
 				_putchar('\n');
-
 			free(get);
 			break;
 		}
@@ -56,7 +57,39 @@ int main(int argc __attribute__((unused)), char *argv[])
 
 		if (is_a(first) == 1) /*check if its a path name*/
 		{
-			if (built_in(gcopy, env) == 0)/*check built in*/
+
+			if(_strcmp(first, "exit") == 0)
+			{
+				if (args > 2)
+				{
+					_errors(argv, first);
+				}
+					if (args == 1)
+					{
+						exit(exit_status);
+					}
+
+					else
+					{
+						token = _strtok(NULL, " ");
+
+						if (isnum(token) == -1)
+						{
+							_errors(argv, first);
+						}
+						else
+						{
+							exit_status = _atoi(token);
+							exit(exit_status);
+						}
+					}
+
+
+				continue;
+
+			}
+
+			else if (built_in(gcopy, env) == 0)/*check built in*/
 			{
 				free(buffer);
 				free(get);
@@ -69,13 +102,8 @@ int main(int argc __attribute__((unused)), char *argv[])
 				buffer[0] = checker;
 			else
 			{
-
-				write(STDERR_FILENO, argv[0], _strlen(argv[0]));
-				write(STDERR_FILENO, ": ", 2);
-			/*	_putchar(linecount + '0');*/
-				write(STDERR_FILENO, ": ", 2);
-				write(STDERR_FILENO, first, _strlen(first));
-				write(STDERR_FILENO, " not found\n", 18);
+				exit_status = 127;
+				_errors(argv, first);
 				free(buffer);
 				free(get);
 				free(gcopy);
@@ -99,13 +127,18 @@ int main(int argc __attribute__((unused)), char *argv[])
 			free(buffer);
 			free(get);
 			free(gcopy);
-			wait(NULL);
+			wait(status);
+
+			/*	if (WIFEXITED(status))
+				exit_status = WEXITSTATUS(status);*/
+
 		}
 		if (child2 == 0)
 		{
 			z = execve(buffer[0], buffer, NULL);
 			if (z == -1)
 			{
+
 				perror("Execution Error: ");
 				break;
 			}

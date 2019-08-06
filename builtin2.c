@@ -18,6 +18,7 @@ int _e(char *s __attribute__((unused)), int args, list *env __attribute__((unuse
 	print_list(env);
 	return (0);
 }
+
 /**
  * _atoi - takes the string turns it into an integer.
  * @s: string that is being passed
@@ -69,20 +70,6 @@ int isnum(char *s)
 
 	while (*s)
 	{
-		if (*s == '-' && *(s + 1) == '0')
-		{
-			s++;
-			while (*s)
-			{
-				if (*s == '0')
-					s++;
-				else
-					return (-1);
-			}
-
-			return (0);
-		}
-
 		if (*s >= '0' && *s <= '9')
 			s++;
 		else
@@ -90,3 +77,14 @@ int isnum(char *s)
 	}
 	return (0);
 }
+
+
+void _errors(char *argv[], char *first)
+{
+	write(STDERR_FILENO, argv[0], _strlen(argv[0]));
+	write(STDERR_FILENO, ": ", 2);
+	write(STDERR_FILENO, first, _strlen(first));
+	write(STDERR_FILENO, " not found\n", 11);
+
+}
+

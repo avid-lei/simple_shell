@@ -14,18 +14,16 @@ int built_in(char *get, list *env)
 	builtin b[] = {
 
 		{"cd", _cd},
-		{"exit", _ex},
 		{"env", _e},
 		{"setenv", _set},
 		{"unsetenv", _unset},
-
 	};
 
 	args = _strn(get);
 
 	token = _strtok(get, " ");
 
-	for (x = 0; x < 5; x++)
+	for (x = 0; x < 4; x++)
 	{
 		if (_strcmp(b[x].command, token) == 0)
 		{
@@ -58,7 +56,6 @@ int _cd(char *s, int args, list *env __attribute__((unused)))
 
 	int x;
 
-
 	if (args > 2)
 	{
 		return (-1);
@@ -66,7 +63,6 @@ int _cd(char *s, int args, list *env __attribute__((unused)))
 	if (args == 1)
 	{
 		chdir("..");
-		return (0);
 	}
 
 	if (_strcmp(s, "-") == 0)
@@ -162,30 +158,38 @@ int _unset(char *s, int args, list *env)
  * @args: args that are being passed.
  * @env: list that is reference with the outside env.
  **/
-
-int _ex(char *s, int args, list *env __attribute__((unused)))
+/*
+int _ex(int exit_status, int args, char *s)
 {
 
-	static int exitval;
+	char *token;
 
-	exitval = 0;
+	if (args > 2)
+	{
+		return (-1);
 
+	}
 	if (args == 1)
 	{
-		exit(exitval);
+		exit(exit_status);
 	}
+
 
 	else
 	{
-		if (isnum(s) == -1)
+		token = _strtok(s, " ");
+		token = _strtok(NULL, " ");
+
+		if (isnum(token) == -1)
 		{
 			return (-1);
 		}
 		else
 		{
-			exitval = _atoi(s);
-			exit(exitval);
+			exit_status = _atoi(token);
+			exit(exit_status);
 		}
 	}
 	return (0);
 }
+*/
