@@ -102,8 +102,6 @@ int _set(char *s, int args, list *env)
 
 	str = malloc(len * sizeof(char));
 
-	if (!str)
-		return (-1);
 	_strcpy(str, var);
 	_strcat(str, "=");
 	_strcat(str, val);
