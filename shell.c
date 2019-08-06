@@ -7,7 +7,7 @@
 #include <signal.h>
 
 
-int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
+int main(int argc __attribute__((unused)), char *argv[])
 {
 	char **buffer;
 	char *get = NULL, *first, *checker, *gcopy, *com = NULL;
@@ -72,7 +72,7 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 
 				write(STDERR_FILENO, argv[0], _strlen(argv[0]));
 				write(STDERR_FILENO, ": ", 2);
-				_putchar(linecount + '0');
+			/*	_putchar(linecount + '0');*/
 				write(STDERR_FILENO, ": ", 2);
 				write(STDERR_FILENO, first, _strlen(first));
 				write(STDERR_FILENO, " not found\n", 18);
