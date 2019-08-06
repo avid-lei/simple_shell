@@ -31,6 +31,9 @@ char *_which(char *s, list *p)
 
 			path = malloc(len * sizeof(char));
 
+			if (!path)
+				return (NULL);
+
 			path = _strcpy(path, p->s);
 
 			path = _strcat(path, "/");

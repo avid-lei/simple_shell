@@ -67,6 +67,7 @@ int _strcmp(char *s1, char *s2);
 int _strncmp(char *s1, char *s2, size_t n);
 void sigHandler(int sig_num);
 int _putchar(char c);
+int _puter(char c);
 void _errors(char *argv[], char *first);
 
 #endif
