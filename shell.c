@@ -5,18 +5,18 @@
 #include <sys/wait.h>
 #include "header.h"
 #include <signal.h>
-
-/**
+/*
+**
  * init - function line counter
  * Return: always 0
- */
+ *
 void init(void) __attribute__ ((constructor));
 void init(void)
 {
 	signal(SIGINT, sigHandler);
 
 }
-
+*/
 /**
  * main - main shell function
  * @argc: int
