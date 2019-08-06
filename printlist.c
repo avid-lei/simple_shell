@@ -9,14 +9,12 @@
 int print_list(const list *h)
 {
 
-	int i, x;
+	int i;
 
 	for (i = 0; h; i++)
 	{
-		for (x = 0; h->s[x] != '\0'; x++)
-		{
-			_putchar(h->s[x]);
-		}
+		write (STDOUT_FILENO, h->s, _strlen(h->s));
+
 		_putchar('\n');
 		h = h->next;
 	}
