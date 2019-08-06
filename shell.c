@@ -66,6 +66,11 @@ int main(int argc __attribute__((unused)), char *argv[])
 				}
 				if (args == 1)
 				{
+					free(get);
+					free(buffer);
+					free(gcopy);
+					free_list(&path);
+					free_list(&env);
 					exit(exit_status);
 				}
 
@@ -88,6 +93,12 @@ int main(int argc __attribute__((unused)), char *argv[])
 							exit_status = 2;
 							continue;
 						}
+						free(get);
+						free(buffer);
+						free(gcopy);
+						free_list(&path);
+						free_list(&env);
+
 						exit(exit_status);
 					}
 				}

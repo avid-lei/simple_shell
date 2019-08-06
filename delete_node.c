@@ -28,6 +28,7 @@ void delete_node(list **head, unsigned int index)
 		{
 			temp = new->next;
 			new->next = new->next->next;
+			free(temp->s);
 			free(temp);
 			return;
 		}
