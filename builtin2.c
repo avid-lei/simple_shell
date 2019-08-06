@@ -15,9 +15,7 @@ int _e(char *s __attribute__((unused)), int args, list *env __attribute__((unuse
 		return (-1);
 	}
 
-	_printenv();
-
-/*	print_list(env);*/
+	print_list(env);
 	return (0);
 }
 /**
