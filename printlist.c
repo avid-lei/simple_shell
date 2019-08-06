@@ -9,7 +9,7 @@
 int print_list(const list *h)
 {
 
-	int i;
+	int i, x;
 
 	for (i = 0; h; i++)
 	{
