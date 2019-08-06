@@ -64,25 +64,25 @@ int main(int argc __attribute__((unused)), char *argv[])
 				{
 					_errors(argv, first);
 				}
-					if (args == 1)
-					{
-						exit(exit_status);
-					}
+				if (args == 1)
+				{
+					exit(exit_status);
+				}
 
+				else
+				{
+					token = _strtok(NULL, " ");
+
+					if (isnum(token) == -1)
+					{
+						_errors(argv, first);
+					}
 					else
 					{
-						token = _strtok(NULL, " ");
-
-						if (isnum(token) == -1)
-						{
-							_errors(argv, first);
-						}
-						else
-						{
-							exit_status = _atoi(token);
-							exit(exit_status);
-						}
+						exit_status = _atoi(token);
+						exit(exit_status);
 					}
+				}
 
 
 				continue;
@@ -129,17 +129,17 @@ int main(int argc __attribute__((unused)), char *argv[])
 			free(gcopy);
 			wait(status);
 
-			/*	if (WIFEXITED(status))
-				exit_status = WEXITSTATUS(status);*/
-
-		}
+					}
 		if (child2 == 0)
 		{
 			z = execve(buffer[0], buffer, NULL);
+			exit_status = 2;
 			if (z == -1)
 			{
-
-				perror("Execution Error: ");
+				exit_status = 2;
+			/*	if (WIFEXITED(status))
+					exit_status = WEXITSTATUS(status);*/
+				perror("Execution Error");
 				break;
 			}
 		}
