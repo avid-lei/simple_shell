@@ -11,6 +11,7 @@
  * Return: always 0
  */
 void init(void) __attribute__ ((constructor));
+
 void init(void)
 {
 
@@ -35,6 +36,7 @@ int main(int argc __attribute__((unused)), char *argv[])
 	list *path = getpath();
 	list *env = genv();
 	int linecount = 0;
+
 	signal(SIGINT, sigHandler);
 
 
