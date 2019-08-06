@@ -8,6 +8,8 @@
 
 int print_list(const list *h)
 {
+	if (!h)
+		return(0);
 
 	int i, x;
 
