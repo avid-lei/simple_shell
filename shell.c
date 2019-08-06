@@ -79,7 +79,15 @@ int main(int argc __attribute__((unused)), char *argv[])
 					}
 					else
 					{
+
 						exit_status = _atoi(token);
+
+						if (exit_status == -1)
+						{
+							_errors(argv, first);
+							exit_status = 2;
+							continue;
+						}
 						exit(exit_status);
 					}
 				}

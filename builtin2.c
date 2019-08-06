@@ -30,7 +30,6 @@ int _atoi(char *s)
 	long negcounter = 0;
 	long number;
 	long maxnum = 2147483647;
-	long minnum = -2147483648;
 
 	while (*s)
 	{
@@ -45,8 +44,8 @@ int _atoi(char *s)
 			s++;
 			while (*s >= '0' && *s <= '9')
 			{
-				if (number + (*s - '0') > (maxnum / 10))
-					return ((negcounter % 2 == 0) ? (maxnum) : (minnum));
+				if (number >= (maxnum / 10) && *s >= '8' )
+					return (-1);
 				number = (number * 10) + (*s - '0');
 				s++;
 			}
