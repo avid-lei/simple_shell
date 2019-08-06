@@ -5,6 +5,7 @@
  * @s: string that is being passed
  * @args: args that are being passed.
  * @env: list that is reference with the outside env.
+ * Return: 0
  **/
 
 int _e(char *s __attribute__((unused)), int args, list *env)
@@ -44,7 +45,7 @@ int _atoi(char *s)
 			s++;
 			while (*s >= '0' && *s <= '9')
 			{
-				if (number >= (maxnum / 10) && *s >= '8' )
+				if (number >= (maxnum / 10) && *s >= '8')
 					return (-1);
 				number = (number * 10) + (*s - '0');
 				s++;
@@ -77,6 +78,12 @@ int isnum(char *s)
 	return (0);
 }
 
+/**
+ *_errors - print errors
+ *@argv: char[]
+ *@first: char
+ *Return:void
+ */
 
 void _errors(char *argv[], char *first)
 {

@@ -5,6 +5,7 @@
  * @env: args that are being passed.
  * Return: 0 if Success else -1
  **/
+
 int built_in(char *get, list *env)
 {
 
@@ -36,7 +37,7 @@ int built_in(char *get, list *env)
 			{
 				token = _strtok(NULL, "\n");
 				if (b[x].func(token, args, env) == -1)
-					return(-1);
+					return (-1);
 			}
 			return (0);
 		}
@@ -49,6 +50,7 @@ int built_in(char *get, list *env)
  * @s: string that is being passed
  * @args: args that are being passed.
  * @env: list that is reference with the outside env.
+ * Return: int
  **/
 
 int _cd(char *s, int args, list *env __attribute__((unused)))
@@ -80,6 +82,7 @@ int _cd(char *s, int args, list *env __attribute__((unused)))
  * @s: string that is being passed
  * @args: args that are being passed.
  * @env: list that is reference with the outside env.
+ * Return: int
  **/
 int _set(char *s, int args, list *env)
 {
@@ -125,6 +128,7 @@ int _set(char *s, int args, list *env)
  * @s: string that is being passed
  * @args: args that are being passed.
  * @env: unset the env.
+ * Return: int
  **/
 
 int _unset(char *s, int args, list *env)
@@ -152,44 +156,4 @@ int _unset(char *s, int args, list *env)
 
 	return (0);
 }
-/**
- * _ex - takes the string and args and check it through the env.
- * @s: string that is being passed
- * @args: args that are being passed.
- * @env: list that is reference with the outside env.
- **/
-/*
-int _ex(int exit_status, int args, char *s)
-{
 
-	char *token;
-
-	if (args > 2)
-	{
-		return (-1);
-
-	}
-	if (args == 1)
-	{
-		exit(exit_status);
-	}
-
-
-	else
-	{
-		token = _strtok(s, " ");
-		token = _strtok(NULL, " ");
-
-		if (isnum(token) == -1)
-		{
-			return (-1);
-		}
-		else
-		{
-			exit_status = _atoi(token);
-			exit(exit_status);
-		}
-	}
-	return (0);
-}
-*/

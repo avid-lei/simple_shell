@@ -6,12 +6,23 @@
 #include "header.h"
 #include <signal.h>
 
-void f(void) __attribute__ ((constructor));
-void f(void)
+/**
+ * init - function line counter
+ * Return: always 0
+ */
+void init(void) __attribute__ ((constructor));
+void init(void)
 {
 	signal(SIGINT, sigHandler);
 
 }
+
+/**
+ * main - main shell function
+ * @argc: int
+ * @argv: char
+ * Return: always 0
+ */
 
 int main(int argc __attribute__((unused)), char *argv[])
 {
@@ -25,7 +36,7 @@ int main(int argc __attribute__((unused)), char *argv[])
 	list *path = getpath();
 	list *env = genv();
 	int linecount = 0;
-	signal(SIGINT, sigHandler);
+/*	signal(SIGINT, sigHandler);*/
 
 
 	while (x != -1)
@@ -64,7 +75,7 @@ int main(int argc __attribute__((unused)), char *argv[])
 		if (is_a(first) == 1) /*check if its a path name*/
 		{
 
-			if(_strcmp(first, "exit") == 0)
+			if (_strcmp(first, "exit") == 0)
 			{
 				if (args > 2)
 				{
@@ -93,12 +104,12 @@ int main(int argc __attribute__((unused)), char *argv[])
 
 						exit_status = _atoi(token);
 
-						if (exit_status == -1)
-						{
-							_errors(argv, first);
-							exit_status = 2;
-							continue;
-						}
+					if (exit_status == -1)
+					{
+						_errors(argv, first);
+						exit_status = 2;
+						continue;
+					}
 						free(get);
 						free(buffer);
 						free(gcopy);

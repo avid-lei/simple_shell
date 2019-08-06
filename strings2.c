@@ -13,7 +13,7 @@ int _strcmp(char *s1, char *s2)
 	int comp;
 
 	if (_strlen(s1) != _strlen(s2))
-			return(-1);
+		return (-1);
 
 	while (*s1 == *s2)
 	{

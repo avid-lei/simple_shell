@@ -9,11 +9,22 @@
 
 extern char **environ;
 
+/**
+ * struct list - struct for list
+ *@s: char
+ *@next: struct list
+  */
 typedef struct list
 {
 	char *s;
 	struct list *next;
 } list;
+
+/**
+ * struct builtin - struct for builtin
+ *@command: char
+ *@func: function pointer
+ */
 
 typedef struct builtin
 {
