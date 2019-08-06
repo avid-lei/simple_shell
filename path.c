@@ -78,7 +78,6 @@ list *genv(void)
 
 
 	list *head;
-	int count = 0;
 
 	head = NULL;
 
@@ -86,10 +85,7 @@ list *genv(void)
 	{
 		add_node(&head, *environ);
 		environ++;
-		count++;
 	}
-
-	environ = environ - count;
 
 return (head);
 
