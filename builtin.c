@@ -1,5 +1,10 @@
 #include "header.h"
-
+/**
+ * built_in - takes the string and args and check it through the env.
+ * @get: string that is being passed
+ * @env: args that are being passed.
+ * Return: 0 if Success else -1
+ **/
 int built_in(char *get, list *env)
 {
 
@@ -40,6 +45,12 @@ int built_in(char *get, list *env)
 
 	return (-1);
 }
+/**
+ * _cd - takes the string and args and check it through the env.
+ * @s: string that is being passed
+ * @args: args that are being passed.
+ * @env: list that is reference with the outside env.
+ **/
 
 void _cd(char *s, int args, list *env __attribute__((unused)))
 {
@@ -68,7 +79,12 @@ void _cd(char *s, int args, list *env __attribute__((unused)))
 	}
 
 }
-
+/**
+ * _set - set the string and args and check it through the env.
+ * @s: string that is being passed
+ * @args: args that are being passed.
+ * @env: list that is reference with the outside env.
+ **/
 void _set(char *s, int args, list *env)
 {
 	char *var;
@@ -107,6 +123,12 @@ void _set(char *s, int args, list *env)
 		env = add_node_end(&temp, str);
 
 }
+/**
+ * _unset - takes the string and args and check it through the env.
+ * @s: string that is being passed
+ * @args: args that are being passed.
+ * @env: unset the env.
+ **/
 
 void _unset(char *s, int args, list *env)
 {
@@ -132,11 +154,19 @@ void _unset(char *s, int args, list *env)
 		env = env->next;
 	}
 }
+/**
+ * _ex - takes the string and args and check it through the env.
+ * @s: string that is being passed
+ * @args: args that are being passed.
+ * @env: list that is reference with the outside env.
+ **/
 
 void _ex(char *s, int args, list *env __attribute__((unused)))
 {
 
-	static int exitval = 0;
+	static int exitval;
+
+	exitval = 0;
 
 	if (args == 1)
 	{
@@ -147,7 +177,7 @@ void _ex(char *s, int args, list *env __attribute__((unused)))
 	{
 		if (isnum(s) == -1)
 		{
-			dprintf ( 2, ": 1: exit: Illegal number: %s\n", s);
+			dprintf(2, ": 1: exit: Illegal number: %s\n", s);
 			return;
 		}
 		else
@@ -157,6 +187,3 @@ void _ex(char *s, int args, list *env __attribute__((unused)))
 		}
 	}
 }
-
-
-
