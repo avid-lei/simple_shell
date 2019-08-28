@@ -44,7 +44,7 @@ Our shell can run outside programs by typing their absolute paths (/bin/ls) or t
 ### Examples
 
 ```sh
-$ ls -l
+divalicious$ ls -l
 total 76
 -rw-rw-r-- 1 vagrant vagrant  2492 Aug 28 02:27 #README.md#
 -rw-rw-r-- 1 vagrant vagrant     7 Aug 27 20:51 README.md
@@ -63,11 +63,11 @@ total 76
 -rw-rw-r-- 1 vagrant vagrant   670 Aug 27 20:51 strtok.c
 ```
 ```sh
-$ /bin/pwd
+divalicious$ /bin/pwd
 /home/vagrant/simple_shell
 ```
 ```sh
-$ hello world
+divalicious$ hello world
 ./hsh: 1: hello: not found
 ```
 ```sh
