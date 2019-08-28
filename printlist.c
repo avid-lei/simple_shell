@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * print_listint- prints all the elemtents of the list
+ * print_list- prints all the elemtents of the list
  * @h: listint_t
  * Return: size_t
  */
