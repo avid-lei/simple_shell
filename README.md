@@ -1,4 +1,4 @@
-:turtle:turtle: ####Simple Shell :turtle:turtle:
+# :turtle::turtle::shell: Simple Shell :shell::turtle::turtle:
 - - -
 ### Description
 A simple UNIX command interpreter that replicates functionalities of the simple shell (sh). Additional functions are also included. This program was written entirely in C.
@@ -29,7 +29,6 @@ env      | Print the environment.
 setenv [var] [value] | Set an environment variable and value. If the variable exists, the value will be updated.
 unsetenv [var] | Remove an environment variable.
 cd [dir] | Change the directory.
-help [built-in] | Read documentation for a built-in.
 
 The following built-in commands may be supported in future versions:
 
