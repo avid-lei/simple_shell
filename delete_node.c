@@ -1,3 +1,5 @@
+#include "header.h"
+#include <stdlib.h>
 /**
  * delete_node - deletes the node of a list array.
  * @head: double pointer.
