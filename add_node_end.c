@@ -1,3 +1,5 @@
+#include "header.h"
+#include <stdlib.h>
 /**
  * add_node_end - adds the node to the end.
  * @head: double pointer of the head list.
