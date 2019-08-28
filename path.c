@@ -33,11 +33,15 @@ list *getpath(void)
 		add_node(&head, "./");
 
 
-	free (copy);
-	free (path);
+	free(copy);
+	free(path);
 	return (head);
 }
-
+/**
+ * pathchecker - chec the path of the copyt string.
+ * @copy: copied string being checked.
+ * Return: the string to index else -1 if it fails.
+ **/
 
 
 int pathchecker(char *copy)
@@ -87,4 +91,3 @@ list *genv(void)
 return (head);
 
 }
-
