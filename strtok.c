@@ -1,5 +1,10 @@
 #include "header.h"
-
+/**
+ * _strtok - takes the string and deliminates all the charactors specified.
+ * @str: string being check.
+ * @delim: deliminator being ommitte.
+ * Return: string with a null byte at the end.
+ **/
 char *_strtok(char *str, char *delim)
 {
 
@@ -41,7 +46,11 @@ char *_strtok(char *str, char *delim)
 	return (str);
 
 }
-
+/**
+ * _strn - string count while checking for deliminators.
+ * @str: string that is being ran.
+ * Return: count of from the string.
+ **/
 int _strn(char *str)
 {
 	int count = 0;
@@ -61,8 +70,3 @@ int _strn(char *str)
 	return (count);
 
 }
-
-
-
-
-
