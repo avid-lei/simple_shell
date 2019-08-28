@@ -1,5 +1,12 @@
 #include "header.h"
 
+/**
+ * _e - takes the string and args and check it through the env.
+ * @s: string that is being passed
+ * @args: args that are being passed.
+ * @env: list that is reference with the outside env.
+ **/
+
 void _e(char *s, int args, list *env)
 {
 
@@ -12,7 +19,11 @@ void _e(char *s, int args, list *env)
 
 	print_list(env);
 }
-
+/**
+ * _atoi - takes the string turns it into an integer.
+ * @s: string that is being passed
+ * Return: turns the char into an integer.
+ **/
 
 int _atoi(char *s)
 {
@@ -49,7 +60,11 @@ int _atoi(char *s)
 	}
 	return (0);
 }
-
+/**
+ * isnum - check isf the string ins a number.
+ * @s: string that is being passed
+ * Return: it returns 0 if success.
+ **/
 int isnum(char *s)
 {
 
@@ -76,4 +91,3 @@ int isnum(char *s)
 	}
 	return (0);
 }
-
