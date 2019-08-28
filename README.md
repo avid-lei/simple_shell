@@ -1,4 +1,4 @@
-Simple Shell
+:turtle:turtle: ####Simple Shell :turtle:turtle:
 - - -
 ### Description
 A simple UNIX command interpreter that replicates functionalities of the simple shell (sh). Additional functions are also included. This program was written entirely in C.
