@@ -95,17 +95,20 @@ _=./hsh
 ```
 ### Included Files
 
+ - _getenv.c - gets the environmental character.
+ - _putchar.c - writes the output to the prompt.
+ - _which.c - determines which character pointers is going through the struct.
  - adddnode.c - Add a node at the front of a linked list.
- - shell.c - functions for running the basic shell logic
- - builtin.c -
- - builtin2.c -
- - freelist.c -
+ - addnode2.c - Second interation of add functions that need to be used.
+ - builtin.c - takes the string arguments and checks them with the env.
+ - builtin2.c - second interation of function needed for the builtin functions.
+ - freelist.c - 
  - getenv.c -
  - header.h -
  - isa.c -
  - path.c -
  - printlist.c -
- - shell.c -
+ - shell.c - function for running the basis shell logic.
  - strings.c -
  - strok.c -
 

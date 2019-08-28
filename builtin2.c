@@ -7,17 +7,16 @@
  * @env: list that is reference with the outside env.
  **/
 
-void _e(char *s __attribute__((unused)), int args, list *env)
+int _e(char *s __attribute__((unused)), int args, list *env __attribute__((unused)))
 {
 
 	if (args > 1)
 	{
-		write(STDERR_FILENO, "No such file or directory\n", 26);
-		return;
+		return (-1);
 	}
 
-
 	print_list(env);
+	return (0);
 }
 /**
  * _atoi - takes the string turns it into an integer.

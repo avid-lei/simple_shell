@@ -21,6 +21,9 @@ char *_which(char *s, list *p)
 	struct stat st;
 
 
+	if (_strcmp(s, "env") == 0)
+		return (NULL);
+
 		while (p)
 		{
 
