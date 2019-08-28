@@ -102,15 +102,18 @@ _=./hsh
  - addnode2.c - Second interation of add functions that need to be used.
  - builtin.c - takes the string arguments and checks them with the env.
  - builtin2.c - second interation of function needed for the builtin functions.
- - freelist.c - 
- - getenv.c -
- - header.h -
- - isa.c -
- - path.c -
- - printlist.c -
+ - freelist.c - frees the list.
+ - header.h - handles libraries and prototype.
+ - hsh - This will be the compiled file once ran through GCC.
+ - int_getn.c - compares the strings in the environment.
+ - is_a.c -checks if its a character.
+ - path.c - pathchecker and helps with path token.
+ - printlist.c - prints the list array.
  - shell.c - function for running the basis shell logic.
- - strings.c -
- - strok.c -
+ - sighandler.c - hands the signal for inside the main function.
+ - strings.c - string implementation multiple functions.
+ - strings2.c - second interation of string functions that are in use.
+ - strok.c - seperate and create tokens from the string.
 
 ### Credits
 All code written by [Akeem Seymens](https://github.com/akeemseymens) and [Diva Lei](https://github.com/avid-lei).
