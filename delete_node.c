@@ -33,5 +33,4 @@ void delete_node(list **head, unsigned int index)
 		new = new->next;
 	}
 
-	return;
 }
