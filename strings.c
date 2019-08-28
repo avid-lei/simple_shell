@@ -1,5 +1,9 @@
 #include "header.h"
-
+/**
+ * _strdup - duplicate and malloc for the new string.
+ * @str: targeted string.
+  * Return: The completed string that is being duplicated.
+  **/
 
 char *_strdup(char *str)
 {
@@ -33,19 +37,27 @@ char *_strdup(char *str)
 
 	return (ar);
 
-
-
 }
-
+/**
+ * _strlen - measures the string lenght
+ * @s: destination of the string.
+ * Return: The count of the string.
+ **/
 
 int _strlen(char *s)
 {
 	int count;
+
 	for (count = 0; s[count] != '\0'; count++)
 	;
 		return (count);
 }
-
+/**
+ * _strcpy - string we are going to copy together.
+ * @dest: destination of the string.
+ * @src: source of the string.
+ * Return: The completed copy string.
+ **/
 
 char *_strcpy(char *dest, char *src)
 {
@@ -62,7 +74,12 @@ char *_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-
+/**
+ * _strcat - string concat string together.
+ * @dest: destination of the string.
+ * @src: source of the string.
+ * Return: The completed added string.
+ **/
 
 char *_strcat(char *dest, char *src)
 {
@@ -85,40 +102,5 @@ char *_strcat(char *dest, char *src)
 	*temp = '\0';
 	temp = temp - length;
 	return (dest);
-
-}
-
-
-int _strcmp(char *s1, char *s2)
-{
-	int comp;
-
-	while (*s1 == *s2)
-	{
-		s1++;
-		s2++;
-		if (*s1 == '\0')
-			return (0);
-	}
-	comp = *s1 - *s2;
-	return (comp);
-
-}
-
-int _strncmp(char *s1, char *s2, size_t n)
-{
-	int comp;
-	size_t x = 0;
-
-	while (*s1 == *s2)
-	{
-		s1++;
-		s2++;
-		x++;
-		if (*s1 == '\0' || x == n)
-			return (0);
-	}
-	comp = *s1 - *s2;
-	return (comp);
 
 }
