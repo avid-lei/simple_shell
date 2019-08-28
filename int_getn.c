@@ -12,7 +12,7 @@ int _getn(char *name)
 	int x = 0;
 	int len = _strlen(name);
 
-	for (x = 0; environ[x] != '\0'; x++)
+	for (x = 0; environ[x]; x++)
 	{
 
 		if (_strncmp(environ[x], name, len) == 0)
