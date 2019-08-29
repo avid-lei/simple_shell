@@ -10,7 +10,7 @@ Clone this repository into local working directory. For best results, files shou
 After compilation, the resulting program can run stand-alone, either in interactive or non-interactive mode.
 
 #### Interactive Mode
-In interactive mode, simply run the program and wait for the prompt to appear. From there, you can type commands freely, exiting with either the "exit" command or ctrl-D.
+In interactive mode, simply run the program and wait for the prompt to appear. From there, type commands freely, exiting with either the "exit" command or ctrl-D.
 
 #### Non-Interactive Mode
 In non-interactive mode, echo desired command and pipe it into the program as following:
