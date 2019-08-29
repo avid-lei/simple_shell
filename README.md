@@ -4,7 +4,7 @@
 A simple UNIX command interpreter that replicates functionalities of the simple shell (sh). Additional functions are also included. This program was written entirely in C.
 
 ### Installation
-Clone this repository into your working directory. For best results, files should be compiled with GCC and the following flags: Wall -Werror -Wextra -pedantic.
+Clone this repository into local working directory. For best results, files should be compiled with GCC and the following flags: Wall -Werror -Wextra -pedantic.
 
 ### Usage
 After compilation, the resulting program can run stand-alone, either in interactive or non-interactive mode.
@@ -39,7 +39,7 @@ history | View the history of the shell.
 
 
 #### Outside Programs
-Our shell can run outside programs by typing their absolute paths (/bin/ls) or the executable name (ls), If their directory is included in the PATH.
+Simple shell can run outside programs by typing the absolute paths (/bin/ls) or the executable name (ls), If directory is included in the PATH.
 
 ### Examples
 
