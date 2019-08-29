@@ -4,7 +4,7 @@
 A simple UNIX command interpreter that replicates functionalities of the simple shell (sh). Additional functions are also included. This program was written entirely in C.
 
 ### Installation
-Clone this repository into your working directory. For best results, files should be compiled with GCC and the following flags: -Wall -Wextra -Werror -pedantic -Wno-format.
+Clone this repository into your working directory. For best results, files should be compiled with GCC and the following flags: Wall -Werror -Wextra -pedantic.
 
 ### Usage
 After compilation, the resulting program can run stand-alone, either in interactive or non-interactive mode.
@@ -13,14 +13,14 @@ After compilation, the resulting program can run stand-alone, either in interact
 In interactive mode, simply run the program and wait for the prompt to appear. From there, you can type commands freely, exiting with either the "exit" command or ctrl-D.
 
 #### Non-Interactive Mode
-In non-interactive mode, echo your desired command and pipe it into the program like this:
+In non-interactive mode, echo desired command and pipe it into the program as following:
 ```sh
 echo "ls" | ./shell
 ```
-In non-interactive mode, the program will exit after finishing your desired command(s).
+In non-interactive mode, the program will exit after finishing desired command(s).
 
 #### Included Built-Ins
-Our shell has support for the following built-in commands:
+The shell has support for the following built-in commands:
 
 Command | Definition
 --------|---------------
