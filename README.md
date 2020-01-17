@@ -4,7 +4,10 @@
 A simple UNIX command interpreter that replicates functionalities of the simple shell (sh). Additional functions are also included. This program was written entirely in C.
 
 ### Installation
-Clone this repository into local working directory. For best results, files should be compiled with GCC and the following flags: Wall -Werror -Wextra -pedantic.
+Clone this repository into local working directory. For best results, files should be compiled with 
+```sh
+gcc -Wall -Werror -Wextra -pedantic *.c
+```
 
 ### Usage
 After compilation, the resulting program can run stand-alone, either in interactive or non-interactive mode.
